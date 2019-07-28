@@ -14,4 +14,5 @@ function draw() {
   faller.addForce(gravity);
   faller.update();
   faller.render();
+  faller.bounce();
 }

@@ -9,6 +9,11 @@ class Faller {
     this.pos.add(this.vel);
     this.acc.mult(0);
   }
+  bounce() {
+    if(this.pos.y >= 800) {
+      this.vel.mult(-1);
+    }
+  }
   addForce(force) {
     this.acc.add(force);
   }
