@@ -1,7 +1,7 @@
 class Faller {
   constructor(x, y) {
     this.pos = createVector(x, y);
-    this.vel = createVector();
+    this.vel = createVector(random(-2, 2), random(-2, 2));
     this.acc = createVector();
   }
   update() {
@@ -10,8 +10,11 @@ class Faller {
     this.acc.mult(0);
   }
   bounce() {
-    if(this.pos.y >= 800) {
-      this.vel.mult(-1);
+    if(this.pos.y <= 0 || this.pos.y >= height) {
+      this.vel.y *= -1;
+    }
+    if(this.pos.x < 0 || this.pos.x > width) {
+      this.vel.x *= -1;
     }
   }
   addForce(force) {
